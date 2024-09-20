@@ -1,0 +1,14 @@
+{% extends 'theme.html' %}
+
+
+
+{% block content %}
+
+{% for photo in photos %}
+<a href="{{photo}}">
+    <img src="{{photo}}" alt="{{photo}}" width="400">
+</a>
+
+{% endfor %}
+
+{% endblock content %}
