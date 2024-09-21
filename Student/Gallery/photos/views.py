@@ -1,4 +1,3 @@
-from pathlib import Path
 from typing import Any
 from django.views.generic import TemplateView
 
