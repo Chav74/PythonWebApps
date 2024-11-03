@@ -16,17 +16,18 @@ class HeroDetailView(DetailView):
     context_object_name = 'hero'
     
 
-class HeroCreateView(CreateView):
+class HeroCreateView(LoginRequiredMixin,CreateView):
     template_name = "hero/add.html"
     model = Superhero
     fields = '__all__'
 
-class HeroUpdateView(UpdateView):
+class HeroUpdateView(LoginRequiredMixin,UpdateView):
     template_name = "hero/edit.html"
     model = Superhero
     fields = '__all__'
 
-class HeroDeleteView(DeleteView):
+class HeroDeleteView(LoginRequiredMixin,DeleteView):
     model = Superhero
     template_name = 'hero/delete.html'
     success_url=reverse_lazy('hero_list')
+

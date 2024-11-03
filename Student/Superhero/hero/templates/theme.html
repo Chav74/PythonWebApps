@@ -10,25 +10,27 @@
     <title>Blog Builder</title>
     <link rel="stylesheet" href="/static/style.css">
 </head>
-
+    
 <body class=" bg-dark text-light">
-
+    {% block navbar %}
+    {% include 'navbar.html' %}
+    {% endblock navbar %}
     <header class="bg-primary p-5 mb-5">
         <h1>Hero Database</h1>
         <h2>Data Views Application</h2>
-        <!-- <br>
+        <br>
         <p>{% if user.is_authenticated %}
         <p>Welcome, {{ user.username }}. Thanks for logging in.</p>
         {% else %}
-        <p>Welcome, new user. Please log in.</p>
-        {% endif %}</p> -->
+        <p>Welcome, new user.</p>
+        {% endif %}</p> 
     </header>
 
     <div class="container m-5">
         <div class="card bg-light text-dark p-5">
 
             <h1 class="text-primary text-center">
-                {% block title %}No Title{% endblock title %}
+                {% block title %}{% endblock title %}
             </h1>
 
             {% block content %}

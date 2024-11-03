@@ -1,0 +1,18 @@
+{% extends 'theme.html' %}
+
+
+{% load crispy_forms_tags %}
+
+
+{% block navbar %}
+{% endblock navbar %}
+
+
+{% block title %}
+Logged out
+{% endblock title %}
+
+
+{% block content %}
+<a href="{% url 'login' %}">Log in</a>
+{% endblock content %}
