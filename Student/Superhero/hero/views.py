@@ -1,56 +1,32 @@
-from pathlib import Path
+from django.urls import reverse_lazy
 from django.views.generic import TemplateView
+from django.views.generic import CreateView, DeleteView, DetailView, ListView, UpdateView
+from django.contrib.auth.mixins import LoginRequiredMixin
 
+from .models import Superhero
 
-class HeroListView(TemplateView):
-    template_name = 'heroes.html'
+class HeroListView(ListView):
+    template_name = 'hero/list.html'
+    model = Superhero
+    context_object_name = 'heroes'
 
-    def get_context_data(self, **kwargs):
-        heroes=['Iron Man','Black Widow','Hulk','Spider-Man','Captain America']
-        return {'heroes':heroes}
+class HeroDetailView(DetailView):
+    template_name = 'hero/detail.html'
+    model = Superhero
+    context_object_name = 'hero'
     
-class HulkView(TemplateView):
-    template_name = 'hero.html'
 
-    def get_context_data(self, **kwargs):
-        return {
-            'title': 'Hulk',
-            'id': 'Bruce Banner',
-            'image': '/static/images/hulk.jpg'
-        }
-class IronManView(TemplateView):
-    template_name = 'hero.html'
+class HeroCreateView(CreateView):
+    template_name = "hero/add.html"
+    model = Superhero
+    fields = '__all__'
 
-    def get_context_data(self, **kwargs):
-        return {
-            'title': 'Iron Man',
-            'id': 'Tony',
-            'image': '/static/images/iron_man.jpg'
-        }
-class BlackWidowView(TemplateView):
-    template_name = 'hero.html'
+class HeroUpdateView(UpdateView):
+    template_name = "hero/edit.html"
+    model = Superhero
+    fields = '__all__'
 
-    def get_context_data(self, **kwargs):
-        return {
-            'title': 'Black Widow',
-            'id': 'Natasha',
-            'image': '/static/images/black_widow.jpg'
-        }
-class SpiderManView(TemplateView):
-    template_name = 'hero.html'
-
-    def get_context_data(self, **kwargs):
-        return {
-            'title': 'Spider-Man',
-            'id': 'Peter',
-            'image': '/static/images/spider_man.jpg'
-        }
-class CaptainAmericaView(TemplateView):
-    template_name = 'hero.html'
-
-    def get_context_data(self, **kwargs):
-        return {
-            'title': 'Captain America',
-            'id': 'Steve',
-            'image': '/static/images/captain_america.jpg'
-        }
+class HeroDeleteView(DeleteView):
+    model = Superhero
+    template_name = 'hero/delete.html'
+    success_url=reverse_lazy('hero_list')

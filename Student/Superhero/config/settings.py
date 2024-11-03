@@ -20,12 +20,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-3x)tjq1y0q$-^v_6ev08zpyu1zwiv%h8%y@3lu-=kx_$fd33@9'
+SECRET_KEY = 'django-insecure-cd+!$cxd5=2-0+7trice+)i0w+xj4o8_%fz-i*0jl_p-ixxr^@'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-# Handle all URL requests made to web server
 ALLOWED_HOSTS = ['*']
 
 # Enable data the Profile app
@@ -37,8 +36,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'hero',
+    'crispy_forms',
+    'crispy_bootstrap4'
 ]
-
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -66,6 +67,7 @@ TEMPLATES = [
         },
     },
 ]
+
 
 WSGI_APPLICATION = 'config.wsgi.application'
 
@@ -112,14 +114,10 @@ USE_I18N = True
 USE_TZ = True
 
 
-# On Digital Ocean it will use the Static Server
-# Locally you need to enable the static media server (Images, CSS, Javascript)
+# Static files (CSS, JavaScript, Images)
+# https://docs.djangoproject.com/en/5.1/howto/static-files/
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [BASE_DIR / "static"]
 
-
-
-# Default primary key field type
-# https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
