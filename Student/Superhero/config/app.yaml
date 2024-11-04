@@ -21,7 +21,7 @@ services:
   routes:
   - path: /
   run_command: |
-    python manage.py migrate --no-input
+    python manage.py migrate --no-input&& python manage.py loaddata hero.json && gunicorn config.wsgi:application
     python manage.py loaddata hero.json
     gunicorn config.wsgi:application --worker-tmp-dir /dev/shm
 static_sites:
