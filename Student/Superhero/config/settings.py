@@ -26,7 +26,9 @@ SECRET_KEY = 'django-insecure-cd+!$cxd5=2-0+7trice+)i0w+xj4o8_%fz-i*0jl_p-ixxr^@
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ["127.0.0.1",
+    "localhost",
+    ".ondigitalocean.app"]
 
 # Enable data the Profile app
 INSTALLED_APPS = [
@@ -39,6 +41,7 @@ INSTALLED_APPS = [
     'hero',
     'crispy_forms',
     'crispy_bootstrap4'
+    
 ]
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 MIDDLEWARE = [
