@@ -23,7 +23,7 @@ services:
   run_command: |
     python manage.py migrate --no-input
     
-    gunicorn --worker-tmp-dir /dev/shm Student.Superhero.wsgi:application
+    #gunicorn --worker-tmp-dir /dev/shm Student.Superhero.wsgi:application
   
 static_sites:
 - environment_slug: html
