@@ -13,6 +13,7 @@ services:
     branch: main
     deploy_on_push: true
     repo: Chav74/PythonWebApps
+  source_dir:Student/Superhero
   http_port: 8080
   instance_count: 1
   instance_size_slug: basic-xxs
@@ -22,7 +23,7 @@ services:
   run_command: |
     python manage.py migrate --no-input
     python manage.py loaddata hero.json
-    gunicorn --worker-tmp-dir /dev/shm config.wsgi
+    gunicorn --worker-tmp-dir /dev/shm config.wsgi:application
   source_dir: Superhero
 static_sites:
 - environment_slug: html
