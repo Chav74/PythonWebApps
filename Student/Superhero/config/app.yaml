@@ -1,7 +1,7 @@
 envs:
 - key: DEBUG
   scope: RUN_AND_BUILD_TIME
-  value: "True"
+  value: "False"
 - key: DISABLE_COLLECTSTATIC
   scope: RUN_AND_BUILD_TIME
   value: "1"
