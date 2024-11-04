@@ -24,14 +24,14 @@ services:
     python manage.py migrate --no-input
     python manage.py loaddata hero.json
     gunicorn --worker-tmp-dir /dev/shm config.wsgi:application
-  source_dir: Superhero
+  
 static_sites:
 - environment_slug: html
   github:
     branch: main
     deploy_on_push: true
     repo: Chav74/PythonWebApps
-  name: webapps-demo-static
+  
   routes:
   - path: /static
-  source_dir: Superhero/static
+  source_dir: Student/Superhero/static
