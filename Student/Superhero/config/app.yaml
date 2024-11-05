@@ -71,3 +71,12 @@ services:
   - key: POSTGRES_PORT
     scope: RUN_AND_BUILD_TIME
     value: ${db.PORT}
+domains:
+- domain: https://octopus-app-8adbk.ondigitalocean.app
+  type: PRIMARY
+  zone: https://octopus-app-8adbk.ondigitalocean.app
+- domain: https://octopus-app-8adbk.ondigitalocean.app/accounts/login/
+  type: ALIAS
+  zone: https://octopus-app-8adbk.ondigitalocean.app/accounts/login/
+name: Chav74-app 
+region: nyc
