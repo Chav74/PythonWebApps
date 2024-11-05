@@ -1,0 +1,71 @@
+[
+{
+    "model": "hero.superhero",
+    "pk": 2,
+    "fields": {
+        "name": "Hulk",
+        "identity": "Bruce",
+        "description": "Scientist turned green monster.",
+        "image": "hulk.jpg",
+        "strengths": "Super strength",
+        "weaknesses": "Not very smart"
+    }
+},
+{
+    "model": "hero.superhero",
+    "pk": 3,
+    "fields": {
+        "name": "Iron Man",
+        "identity": "Tony",
+        "description": "He is a genius with a suit of armor and weapons.",
+        "image": "iron_man.jpg",
+        "strengths": "Weaponized armor",
+        "weaknesses": "Human vulnerability"
+    }
+},
+{
+    "model": "hero.superhero",
+    "pk": 4,
+    "fields": {
+        "name": "Spider-man",
+        "identity": "Peter",
+        "description": "Wall-climbing superhero that uses webs to travel quickly through New-York.",
+        "image": "Spiderman.jpg",
+        "strengths": "Agile and can sense attacks.",
+        "weaknesses": "Fear of failure"
+    }
+},
+{
+    "model": "hero.superhero",
+    "pk": 5,
+    "fields": {
+        "name": "Captain America",
+        "identity": "Steve",
+        "description": "Super-soldier with a vibranium shield.",
+        "image": "captainamerica.jpg",
+        "strengths": "Super strength, and agile.",
+        "weaknesses": "Human vulnerability"
+    }
+},
+{
+    "model": "hero.superhero",
+    "pk": 6,
+    "fields": {
+        "name": "Black Widow",
+        "identity": "Natasha",
+        "description": "Super spy",
+        "image": "black_widow.jpg",
+        "strengths": "spy",
+        "weaknesses": "human vulnerabilities"
+    }
+},
+{
+    "model": "hero.article",
+    "pk": 1,
+    "fields": {
+        "title": "Hello",
+        "body": "Hi",
+        "author": 5
+    }
+}
+]
