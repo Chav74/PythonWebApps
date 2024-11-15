@@ -1,17 +1,21 @@
 {% extends 'theme.html' %}
 
 {% block title %}
-Edit Article
+Add New Investigator
 {% endblock title %}
 
 {% block header_content %}
-Edit Article
+    Add New Investigator
 {% endblock %}
+
 
 
 {% block content %}
 
 <div class="container m-5">
+
+    
+
 
     {% load crispy_forms_tags %}
 
@@ -20,10 +24,13 @@ Edit Article
 
         {{ form|crispy }}
 
+    
+
         <button class="btn btn-success m-5" type="submit">Save Record</button>
-        <a class="btn btn-success m-5" href="delete">Delete Record</a>
+        
 
     </form>
+
 </div>
 
 {% endblock content %}

@@ -2,7 +2,7 @@ from django.urls import reverse_lazy
 from django.views.generic import TemplateView
 from django.views.generic import CreateView, DeleteView, DetailView, ListView, UpdateView
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
-from .models import Article
+from .models import Article,Investigator
 
 from .models import Superhero
 
@@ -12,8 +12,8 @@ class HeroListView(ListView):
     context_object_name = 'heroes'
 
 class HeroDetailView(DetailView):
-    template_name = 'hero/detail.html'
     model = Superhero
+    template_name = 'hero/hero.html'
     context_object_name = 'hero'
     
 
@@ -33,40 +33,63 @@ class HeroDeleteView(LoginRequiredMixin,DeleteView):
     success_url=reverse_lazy('hero_list')
 
 class ArticleListView(ListView):
-    template_name = "article/list.html"
+    template_name = 'article/list.html'
     model = Article
-    context_object_name = "articles"
-
+    context_object_name = 'articles'
 
 class ArticleDetailView(DetailView):
-    template_name = "article/detail.html"
+    template_name = 'article/detail.html'
     model = Article
-    context_object_name = "article"
-
+    context_object_name = 'article'
 
 class ArticleCreateView(LoginRequiredMixin, CreateView):
-    template_name = "article/add.html"
+    template_name = 'article/add.html'
     model = Article
-    fields = "__all__"
+    fields = '__all__'
 
     def form_valid(self, form):
         form.instance.author = self.request.user
         return super().form_valid(form)
 
-
-class ArticleUpdateView(LoginRequiredMixin, UpdateView):
-    template_name = "article/edit.html"
+class ArticleUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
+    template_name = 'article/edit.html'
     model = Article
-    fields = "__all__"
+    fields = '__all__'
 
     def test_func(self):
         return self.get_object().author == self.request.user
 
-
-class ArticleDeleteView(LoginRequiredMixin, DeleteView):
+class ArticleDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = Article
-    template_name = "article/delete.html"
+    template_name = 'article/delete.html'
     success_url = reverse_lazy("article_list")
 
     def test_func(self):
         return self.get_object().author == self.request.user
+    
+
+
+class InvestigatorListView(ListView):
+    template_name = 'investigator/list.html'
+    model = Investigator
+    context_object_name = 'investigators'
+
+class InvestigatorDetailView(DetailView):
+    template_name = 'investigator/detail.html'
+    model = Investigator
+    context_object_name = 'investigator'
+
+class InvestigatorCreateView(LoginRequiredMixin, CreateView):
+    template_name = 'investigator/add.html'
+    model = Investigator
+    fields = '__all__'
+
+class InvestigatorUpdateView(LoginRequiredMixin, UpdateView):
+    template_name = 'investigator/edit.html'
+    model = Investigator
+    fields = '__all__'
+
+class InvestigatorDeleteView(LoginRequiredMixin, DeleteView):
+    model = Investigator
+    template_name = 'investigator/delete.html'
+    success_url = reverse_lazy('investigator_list')

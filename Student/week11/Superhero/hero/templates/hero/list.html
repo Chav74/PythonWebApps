@@ -3,8 +3,11 @@
 
 {% block title %}
 List of Heroes
-{% endblock title %}
+{% endblock %}
 
+{% block header_content %}
+    List of Heroes
+{% endblock %}
 
 {% block content %}
 
@@ -20,7 +23,8 @@ List of Heroes
 
             {% for hero in object_list %}
             <tr>
-                <td><a href="/{{ hero.pk }}">{{ hero.name }}</a></td>
+
+                <td><a href="{% url 'hero_detail' pk=hero.pk %}">{{ hero.name }}</a></td>
                 <td>{{ hero.identity }}</td>
                 <td>
                     {% if hero.image %}
@@ -35,11 +39,11 @@ List of Heroes
         </table>
 
         <p>
-            <a href="/add" class="btn btn-success m-5">Add New Hero</a>
+            <a href="{% url 'hero_add' %}"  class="btn btn-success m-5">Add New Hero</a>
         </p>
 
     </div>
 
 </div>
 
-{% endblock content %}
+{% endblock %}
