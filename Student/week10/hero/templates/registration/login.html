@@ -12,14 +12,6 @@
 Log In
 {% endblock title %}
 
-{% block header_content %}
-Log In
-{% endblock %}
-
-
-
-
-
 
 {% block content %}
 
@@ -32,7 +24,6 @@ Log In
     <div>
         <a href="{% url 'signup' %}">Don't have an account? Sign Up</a>
     </div>
-    <input type="hidden" name="next" value="{{ next }}" />
 </form>
 
 {% endblock content %}
