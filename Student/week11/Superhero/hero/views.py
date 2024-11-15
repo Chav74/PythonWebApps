@@ -78,6 +78,12 @@ class InvestigatorDetailView(DetailView):
     template_name = 'investigator/detail.html'
     model = Investigator
     context_object_name = 'investigator'
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        investigator = self.get_object()
+        context['articles'] = Article.objects.filter(author=investigator.user)
+        return context
 
 class InvestigatorCreateView(LoginRequiredMixin, CreateView):
     template_name = 'investigator/add.html'

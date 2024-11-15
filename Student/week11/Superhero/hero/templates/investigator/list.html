@@ -21,9 +21,9 @@ List of Investigators
                 <th>Investigators</th>
                 
             </tr>
-            {% for article in articles %}
+            {% for investigator in investigators %}
             <tr>
-                <td><a href="/{{ investigator.pk }}">{{ investigator }}</a></td>
+                <td><a href="/investigator/{{ investigator.pk }}">{{ investigator.name }}</a></td>
                 <td>{{ object.investigator }}</td>
             </tr>
             {% endfor %}

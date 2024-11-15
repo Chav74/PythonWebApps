@@ -13,10 +13,9 @@ Delete Investigator
 <div class="container m-5">
 
     <form action="" method="post">{% csrf_token %}
-        <p>Are you sure you want to delete "{{ object.investgator }}"?</p>
+        <p>Are you sure you want to delete "{{ object.name }}"?</p>
         <input type="submit" value="Confirm">
     </form>
 
 </div>
-
 {% endblock content %}

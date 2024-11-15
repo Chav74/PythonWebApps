@@ -10,21 +10,33 @@ Investigator Details
 {% endblock %}
 
 {% block content %}
-
 <div class="row">
-
     <div class="card col-lg">
-
         <table class="table">
             <tr>
                 <td>Investigator Name:</td>
-                <td><a href="{% url 'investigator_edit' pk=object.pk %}">{{ object.investigator }}</a></td>
-                
-            
+                <td>
+                    <a href="{% url 'investigator_edit' pk=investigator.pk %}">
+                        {{ investigator.name }}
+                    </a>
+                </td>
+            </tr>
         </table>
+    </div>
 
+    <div class="card col-lg mt-4">
+        <h3>Articles Written</h3>
+        {% if articles %}
+            <ul class="list-group">
+                {% for article in articles %}
+                    <li class="list-group-item">
+                        <a href="{% url 'article_detail' pk=article.pk %}">{{ article.title }}</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No articles written by this investigator yet.</p>
+        {% endif %}
     </div>
 </div>
-
-
 {% endblock content %}

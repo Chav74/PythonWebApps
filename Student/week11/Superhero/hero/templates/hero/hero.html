@@ -22,6 +22,7 @@
     {% endif %}
 
     <div class="mt-4">
+        <a class="btn btn-primary" href="{% url 'hero_edit' pk=object.pk %}">Edit Hero</a>
         <a href="{% url 'hero_list' %}" class="btn btn-primary">Back to Heroes</a>
     </div>
 {% endblock %}

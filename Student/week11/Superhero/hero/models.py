@@ -7,7 +7,7 @@ class Investigator(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='investigator', blank=True, null=True)
 
     def __str__(self):
-        return self.investigator
+        return self.name
     def get_absolute_url(self):
         return reverse_lazy('investigator_list')
     
