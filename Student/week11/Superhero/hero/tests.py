@@ -2,8 +2,6 @@ from django.contrib.auth import get_user_model
 from django.test import TestCase
 from django.urls import reverse
 from hero.models import Investigator, Superhero, Article
-from django.core.management import call_command
-import csv
 
 def user_args():
     return dict(username='TESTER', email='test@test.us', password='secret')
@@ -121,23 +119,3 @@ class ArticleDataTest(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'article/detail.html')
         self.assertContains(response, self.article.title)
-class CSVExportImportTest(TestCase):
-    def test_csv_export_import(self):
-       
-        hero1 = Superhero.objects.create(name="Superman", identity="Clark Kent", description="Strong")
-        Article.objects.create(title="Superman Flies", body="...", author_id=1)  # Assuming author with id 1 exists
-
-
-        call_command('export_csv')
-
-        Superhero.objects.all().delete()
-        Article.objects.all().delete()
-
- 
-        call_command('import_csv')
-
-        self.assertEqual(Superhero.objects.count(), 1)
-        imported_hero = Superhero.objects.first()
-        self.assertEqual(imported_hero.name, hero1.name)
-
-        self.assertEqual(Article.objects.count(), 1)

@@ -1,0 +1,48 @@
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark text-light">
+
+    <div class="container">
+
+        <a class="navbar-brand text-light" href="/">Superhero App</a>
+
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link text-light" href="{% url 'hero_list' %}">Heroes</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-light" href="{% url 'investigator_list' %}">Investigators</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-light" href="{% url 'article_list' %}">News</a>
+            </li>
+            {% if user.is_authenticated %}
+            <li class="nav-item">
+                <a class="nav-link text-light" href="{% url 'article_add' %}">Write Article</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-light" href="{% url 'account_edit' user.pk %}">Hello {{ user.username }}</a>
+            </li>
+            
+            <li class="nav-item">
+                <form method="POST" action="{% url 'logout' %}" style="display: inline;">
+                    {% csrf_token %}
+                    <button type="submit" class="nav-link btn btn-link text-light">Log out</button>
+                </form>
+            </li>
+            
+            {% else %}
+
+            <li class="nav-item">
+                <a class="nav-link  text-light " href="{% url 'login' %}">Log In</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link  text-light " href="{% url 'signup' %}">Sign Up</a>
+            </li>
+
+            {% endif %}
+
+        </ul>
+
+    </div>
+
+</nav>

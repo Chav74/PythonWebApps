@@ -22,16 +22,10 @@ class HeroCreateView(LoginRequiredMixin,CreateView):
     model = Superhero
     fields = '__all__'
 
-    def test_func(self):
-        return self.request.user.is_superuser 
-
-class HeroUpdateView(LoginRequiredMixin,UserPassesTestMixin,UpdateView):
+class HeroUpdateView(LoginRequiredMixin,UpdateView):
     template_name = "hero/edit.html"
     model = Superhero
     fields = '__all__'
-
-    def test_func(self):
-        return self.request.user.is_superuser
 
 class HeroDeleteView(LoginRequiredMixin,DeleteView):
     model = Superhero

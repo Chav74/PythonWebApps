@@ -1,0 +1,28 @@
+<!-- hero.html -->
+{% extends 'theme.html' %}
+
+{% block title %}
+    Hero Details
+{% endblock %}
+
+{% block header_content %}
+    Hero Details
+{% endblock %}
+
+{% block content %}
+    <h2>{{ hero.name }}</h2>
+    <p><strong>Identity:</strong> {{ hero.identity }}</p>
+    <p><strong>Description:</strong> {{ hero.description }}</p>
+    <p><strong>Strengths:</strong> {{ hero.strengths }}</p>
+    <p><strong>Weaknesses:</strong> {{ hero.weaknesses }}</p>
+    {% if hero.image %}
+    <img src="/static/images/{{ hero.image}}" alt="{{ hero.image.title }}" class="img-fluid">
+    {% else %}
+        <p>No image available.</p>
+    {% endif %}
+
+    <div class="mt-4">
+        <a class="btn btn-primary" href="{% url 'hero_edit' pk=object.pk %}">Edit Hero</a>
+        <a href="{% url 'hero_list' %}" class="btn btn-primary">Back to Heroes</a>
+    </div>
+{% endblock %}

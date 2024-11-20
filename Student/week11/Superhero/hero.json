@@ -1,13 +1,5 @@
 [
 {
-    "model": "hero.investigator",
-    "pk": 3,
-    "fields": {
-        "name": "Def Name",
-        "user": 6
-    }
-},
-{
     "model": "hero.superhero",
     "pk": 2,
     "fields": {
@@ -16,8 +8,7 @@
         "description": "Scientist turned green monster.",
         "image": "hulk.jpg",
         "strengths": "Super strength",
-        "weaknesses": "Not very smart",
-        "investigator": null
+        "weaknesses": "Not very smart"
     }
 },
 {
@@ -29,8 +20,7 @@
         "description": "He is a genius with a suit of armor and weapons.",
         "image": "iron_man.jpg",
         "strengths": "Weaponized armor",
-        "weaknesses": "Human vulnerability",
-        "investigator": null
+        "weaknesses": "Human vulnerability"
     }
 },
 {
@@ -42,8 +32,7 @@
         "description": "Wall-climbing superhero that uses webs to travel quickly through New-York.",
         "image": "Spiderman.jpg",
         "strengths": "Agile and can sense attacks.",
-        "weaknesses": "Fear of failure",
-        "investigator": null
+        "weaknesses": "Fear of failure"
     }
 },
 {
@@ -55,8 +44,7 @@
         "description": "Super-soldier with a vibranium shield.",
         "image": "captainamerica.jpg",
         "strengths": "Super strength, and agile.",
-        "weaknesses": "Human vulnerability",
-        "investigator": null
+        "weaknesses": "Human vulnerability"
     }
 },
 {
@@ -68,38 +56,16 @@
         "description": "Super spy",
         "image": "black_widow.jpg",
         "strengths": "spy",
-        "weaknesses": "human vulnerabilities",
-        "investigator": null
+        "weaknesses": "human vulnerabilities"
     }
 },
 {
     "model": "hero.article",
     "pk": 1,
     "fields": {
-        "hero": null,
         "title": "Hello",
-        "body": "1",
+        "body": "Hi",
         "author": 5
-    }
-},
-{
-    "model": "hero.article",
-    "pk": 2,
-    "fields": {
-        "hero": 2,
-        "title": "The hulk",
-        "body": "1",
-        "author": 6
-    }
-},
-{
-    "model": "hero.article",
-    "pk": 3,
-    "fields": {
-        "hero": 2,
-        "title": "the",
-        "body": "the hulk",
-        "author": 6
     }
 }
 ]
