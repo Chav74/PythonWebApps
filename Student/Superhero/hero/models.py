@@ -1,6 +1,8 @@
+#AC
 from django.contrib.auth.models import User
 from django.db import models
 from django.urls import reverse_lazy 
+from photos.models import Photo
 
 class Investigator(models.Model):
     name = models.CharField(max_length=200, default='Def Name')
@@ -16,7 +18,7 @@ class Superhero(models.Model):
     name = models.CharField(max_length=200)
     identity = models.CharField(max_length=200)
     description = models.TextField(default = "None")
-    image = models.ImageField(upload_to='superheroes/',blank=True,null =True, default = 'superheroes/default_image.jpg')
+    image = models.ForeignKey(Photo, on_delete=models.CASCADE, null=True, blank=True)
     strengths = models.CharField(max_length=200,default = "None")
     weaknesses = models.CharField(max_length=200,default = "None")
     investigator = models.ForeignKey(Investigator, on_delete=models.CASCADE, related_name='superheroes', blank=True, null=True)

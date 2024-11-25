@@ -17,13 +17,13 @@ class HeroDetailView(DetailView):
     context_object_name = 'hero'
     
 
-class HeroCreateView(LoginRequiredMixin,CreateView):
+class HeroCreateView(LoginRequiredMixin,UserPassesTestMixin,CreateView):
     template_name = "hero/add.html"
     model = Superhero
     fields = '__all__'
 
     def test_func(self):
-        return self.request.user.is_superuser 
+        return self.request.user.is_superuser or self.request.user
 
 class HeroUpdateView(LoginRequiredMixin,UserPassesTestMixin,UpdateView):
     template_name = "hero/edit.html"
@@ -31,7 +31,8 @@ class HeroUpdateView(LoginRequiredMixin,UserPassesTestMixin,UpdateView):
     fields = '__all__'
 
     def test_func(self):
-        return self.request.user.is_superuser
+        superhero = self.get_object()
+        return self.request.user.is_superuser or self.request.user
 
 class HeroDeleteView(LoginRequiredMixin,DeleteView):
     model = Superhero
