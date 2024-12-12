@@ -16,7 +16,7 @@
     <p><strong>Strengths:</strong> {{ hero.strengths }}</p>
     <p><strong>Weaknesses:</strong> {{ hero.weaknesses }}</p>
     {% if hero.image %}
-    <img src="/static/images/{{ hero.image}}" alt="{{ hero.image.title }}" class="img-fluid">
+    <img src="{{ hero.image.image.url }}" alt="{{ hero.image.title }}" width="100">
     {% else %}
         <p>No image available.</p>
     {% endif %}
