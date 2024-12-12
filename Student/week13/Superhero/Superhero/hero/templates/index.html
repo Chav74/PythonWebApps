@@ -1,0 +1,27 @@
+{% extends 'theme.html' %}
+
+{% block title %}
+    Welcome
+{% endblock %}
+
+{% block content %}
+    <h2>Welcome!</h2>
+    <p>Explore heroes.</p>
+
+    <div class="row">
+        <div class="col-12 col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <a href="{% url 'hero_list' %}" class="btn btn-primary">View Heroes</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <a href="{% url 'article_list' %}" class="btn btn-primary">View Articles</a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

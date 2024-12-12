@@ -3,7 +3,7 @@ from django.views.generic import TemplateView
 from django.views.generic import CreateView, DeleteView, DetailView, ListView, UpdateView
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from .models import Article,Investigator
-
+from .models import Message
 from .models import Superhero
 
 class HeroListView(ListView):
@@ -106,3 +106,26 @@ class InvestigatorDeleteView(LoginRequiredMixin, DeleteView):
     model = Investigator
     template_name = 'investigator/delete.html'
     success_url = reverse_lazy('investigator_list')
+
+class MessageListView(ListView):
+    model = Message
+    template_name = 'messages/message_list.html'  
+
+class MessageDetailView(DetailView):
+    model = Message
+    template_name = 'messages/message_detail.html' 
+
+class MessageCreateView(CreateView):
+    model = Message
+    template_name = 'messages/message_form.html'  
+    fields = '__all__'
+
+class MessageUpdateView(UpdateView):
+    model = Message
+    template_name = 'messages/message_form.html' 
+    fields = '__all__'
+
+class MessageDeleteView(DeleteView):
+    model = Message
+    template_name = 'messages/message_confirm_delete.html'  
+    success_url = '/messages/'  

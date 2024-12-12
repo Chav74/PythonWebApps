@@ -1,0 +1,37 @@
+{% extends 'theme.html' %}
+
+
+{% block title %}
+Article Details
+{% endblock title %}
+
+{% block header_content %}
+Article Details
+{% endblock %}
+
+{% block content %}
+
+<div class="row">
+
+    <div class="card col-lg">
+
+        <table class="table">
+            <tr>
+                <td>Title</td>
+                <td><a href="{% url 'article_edit' pk=object.pk %}">{{ object.title }}</a></td>
+            </tr>
+            <tr>
+                <td>Body</td>
+                <td>{{ object.body }}</td>
+            </tr>
+            <tr>
+                <td>Author</td>
+                <td>{{ object.author }}</td>
+            </tr>
+        </table>
+
+    </div>
+</div>
+
+
+{% endblock content %}

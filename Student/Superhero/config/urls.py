@@ -3,7 +3,8 @@ from django.urls import path, include
 from hero.views import (
     HeroListView, HeroDetailView, HeroCreateView, HeroUpdateView, HeroDeleteView,
     InvestigatorListView, InvestigatorDetailView, InvestigatorCreateView, InvestigatorUpdateView, InvestigatorDeleteView,
-    ArticleListView, ArticleDetailView, ArticleCreateView, ArticleUpdateView, ArticleDeleteView,
+    ArticleListView, ArticleDetailView, ArticleCreateView, ArticleUpdateView, ArticleDeleteView,MessageListView, MessageDetailView, MessageCreateView, MessageUpdateView, MessageDeleteView
+
 )
 from django.contrib.auth.views import LoginView
 
@@ -38,5 +39,16 @@ urlpatterns = [
     path('accounts/<int:pk>/', UserUpdateView.as_view(), name='account_edit'),
 
 
-     path('', include('photos.urls')),
+    path('', include('photos.urls')),
+
+    
+
+
+    path('messages/', MessageListView.as_view(), name='message_list'),
+    path('messages/<int:pk>/', MessageDetailView.as_view(), name='message_detail'),
+    path('messages/add/', MessageCreateView.as_view(), name='message_create'),
+    path('messages/<int:pk>/edit/', MessageUpdateView.as_view(), name='message_update'),
+    path('messages/<int:pk>/delete/', MessageDeleteView.as_view(), name='message_delete'),
+
+
 ]
